@@ -1,0 +1,261 @@
+        :root {
+            --shake-amount00: 150px;
+            --shake-amount01: 150px;
+            --shake-amount02: 15px;
+            --shake-amount03: 20px;
+            --shake-amount04: 5px;
+            --shake-xmount01: -10px;
+            --shake-xmount02: -15px;
+            --shake-xmount03: -20px;
+            --high-sec01: 200px;
+        }
+
+        * {
+            margin: 0;
+            padding: 0
+        }
+
+        /* ---------------------滾輪框處理框 */
+        #mainright {
+            width: calc(var(--hex-size)*9);
+            height: var(--high-sec01);
+            background-color: orange;
+            display: inline-block;
+        }
+
+        .wheel-container {
+            position: relative;
+            height: 100%;
+            width: 100%;
+            /* background-color: gray; */
+            display: inline-block;
+        }
+
+        #imagewheel,
+        #imagewhee2 {
+            position: absolute;
+            top: 1%;
+            left: 5%;
+            width: calc(var(--hex-size)*4);
+            transition: transform .05s ease;
+        }
+
+        #imagewheel {
+            display: none;
+        }
+
+        .rotating {
+            animation: rotate 0.05s linear infinite;
+        }
+
+        #btn_Sn {
+            position: absolute;
+            top: calc(var(--hex-size)*1.8);
+            left: calc(var(--hex-size)*4.3);
+        }
+
+        #hownkDiv {
+            position: absolute;
+            top: calc(var(--hex-size)*1.3);
+            /* right: 0; */
+            left: calc(var(--hex-size)*4.5);
+            font-family: "Arial", "Microsoft YaHei", "黑体", "宋体", sans-serif;
+            font-size: 16px;
+        }
+
+        #leftIDiv {
+            position: absolute;
+            top: calc(var(--hex-size)*3.2);
+            /* right: 0; */
+            left: calc(var(--hex-size)*4);
+            font-family: "Arial", "Microsoft YaHei", "黑体", "宋体", sans-serif;
+            font-size: 18px;
+            color: #FFF
+        }
+
+        @keyframes rotate {
+            from {
+                transform: rotate(0deg);
+            }
+
+            to {
+                transform: rotate(360deg);
+            }
+        }
+
+        /* ---------------------主畫布Canvas處理框 */
+        canvas {
+            border: 1px solid black;
+            background-image: url(./fig/iceplace01.jpg);
+            background-size: cover;
+
+        }
+
+
+        #canvas_container {
+            position: relative;
+            /* opacity: 0; */
+            /* display: NONE; */
+        }
+
+        #image-container {
+            position: absolute;
+            width: var(--hex-size);
+            /* 宽度等于六边形大小 */
+            height: var(--hex-size);
+            /* 高度等于六边形大小 */
+            /* animation: moveshakeImage 3s steps(4, end)  cubic-bezier(0.42, 0, 0.58, 1) ;; 動畫*/
+            /* //animation: moveshakeImage 2s cubic-bezier(0.42, 0, 0.58, 1);//ok */
+        }
+
+        #image-container img {
+            width: 100%;
+            height: 100%;
+            object-fit: scale-down;
+            position: absolute;
+            /* animation: moveImage 1s ease-in-out; */
+        }
+
+        @keyframes moveshakeImage {
+            from {
+                top: 0px;
+                right: 0px;
+            }
+
+            to {
+                top: var(--pgm-yy);
+                left: var(--pgm-xx);
+            }
+
+            0% {
+                transform: rotate(-30deg);
+            }
+
+            20% {
+                transform: rotate(30deg);
+            }
+
+            30% {
+                transform: rotate(-50deg);
+            }
+
+            40% {
+                transform: rotate(20deg);
+            }
+
+            50% {
+                transform: rotate(-30deg);
+            }
+
+            60% {
+                transform: rotate(40deg);
+            }
+
+            70% {
+                transform: rotate(-30deg);
+            }
+
+            80% {
+                transform: rotate(30deg);
+            }
+
+            90% {
+                transform: rotate(-30deg);
+            }
+
+            100% {
+                transform: rotate(30deg);
+            }
+        }
+
+        /* ----------------------背景音效處理框 */
+        #mainleft {
+            width: calc(var(--hex-size)*5);
+            height: var(--high-sec01);
+            background-color: yellowgreen; 
+            display: inline-block;
+        }
+
+
+        #dnstitle {
+            /* background-color: white; */
+            height: 70%;
+            position: relative;
+        }
+
+        #dnstitle h3 {
+            position: absolute;
+            top: 0%;
+            left: 0%;
+            font-family: "Arial", "Microsoft YaHei", "黑体", "宋体", sans-serif;
+            font-size: 14px;
+            color: aquamarine;
+        }
+
+        #dnstitle img {
+            width: 100%;
+            height: 100%;
+            object-fit: scale-down;
+        }
+
+        #bgmusic {
+            height: 30%;
+            width: 50%;
+            display: inline-block;
+            /* background-color: red; */
+        }
+
+        #play-pause {
+            /* background-color: green; */
+            width: 58%;
+            height: 100%;
+            position: relative;
+            display: inline-block;
+        }
+
+        #play-pause img {
+            width: 100%;
+            height: 100%;
+            object-fit: scale-down;
+        }
+
+        #play-pause span {
+            position: absolute;
+            top: 80%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+            font-family: "Arial", "Microsoft YaHei", "黑体", "宋体", sans-serif;
+            font-size: 14px;
+            color: gray;
+        }
+
+        #volume-control {
+            /* background-color: pink; */
+            display: inline-block;
+            width: 36%;
+            height: 100%;
+            position: relative;
+        }
+
+        #volume-slider {
+            width: 100%;
+            height: 100%;
+            /*writing-mode: bt-lr; 讓垂直拉條由下往上排列 */
+            /* appearance: slider-vertical; */
+            /* transform: rotate(180deg); */
+        }
+
+        #btn_Go {
+            /* 透過使用圓角效果，可以讓按鈕的邊緣看起來更加柔和，並營造出立體感 */
+            width: 50%;
+            height: 30%;
+            display: inline-block;
+            background-color: #4CAF50;
+            color: white;
+            /* padding: 12px 0x; */
+            transform: translate(0%, -42%);
+            border: none;
+            border-radius: 6px 10px 8px 12px;
+            box-shadow: 0 2px 4px 0 rgba(0, 0, 0, 0.2),
+                0 3px 10px 0 rgba(0, 0, 0, 0.19);
+        }
